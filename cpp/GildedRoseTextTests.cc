@@ -1,4 +1,4 @@
-#include "GildedRose.h"
+#include "GoldenMaster.h"
 
 int main() {
     ofstream outfile(goldenMasterFile.c_str());

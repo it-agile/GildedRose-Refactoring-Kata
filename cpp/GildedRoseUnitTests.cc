@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
-
-#include "GildedRose.h"
 #include <sstream>
+#include "GoldenMaster.h"
 
 TEST(GildedRoseTest, Foo) {
     vector<Item> items;
