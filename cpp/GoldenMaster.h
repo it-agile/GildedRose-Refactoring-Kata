@@ -11,18 +11,17 @@ using namespace std;
 
 string goldenMasterFile = "GOLDENMASTER.txt";
 
-inline ostream& operator<<(ostream& s, Item& item) {
+ostream& operator<<(ostream& s, Item& item) {
     s << item.name << ", " << item.sellIn << ", " << item.quality;
     return s;
 }
 
-inline void insertInGoldenMaster(vector<Item> items, GildedRose app,
-        ostream& outStream) {
+void insertInGoldenMaster(GildedRose& app, ostream& outStream) {
     outStream << "OMGHAI!" << endl;
     for (int day = 0; day <= 30; day++) {
         outStream << "-------- day " << day << " --------" << endl;
         outStream << "name, sellIn, quality" << endl;
-        for (vector<Item>::iterator i = items.begin(); i != items.end(); i++) {
+        for (vector<Item>::iterator i = app.items.begin(); i != app.items.end(); i++) {
             outStream << *i << endl;
         }
         outStream << endl;
@@ -30,7 +29,7 @@ inline void insertInGoldenMaster(vector<Item> items, GildedRose app,
     }
 }
 
-inline vector<Item> createTestItems() {
+vector<Item> createTestItems() {
     vector<Item> items;
     items.push_back(Item("+5 Dexterity Vest", 10, 20));
     items.push_back(Item("Aged Brie", 2, 0));
@@ -43,10 +42,10 @@ inline vector<Item> createTestItems() {
     return items;
 }
 
-inline void createGoldenMasterStream(ostream& outfile) {
+void createGoldenMasterStream(ostream& outfile) {
     vector<Item> items = createTestItems();
     GildedRose app(items);
-    insertInGoldenMaster(items, app, outfile);
+    insertInGoldenMaster(app, outfile);
 }
 
 #endif
