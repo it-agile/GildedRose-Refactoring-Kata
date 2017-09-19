@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "GildedRose.h"
+#include <sstream>
 
 TEST(GildedRoseTest, Foo) {
     vector<Item> items;
@@ -10,8 +11,20 @@ TEST(GildedRoseTest, Foo) {
     EXPECT_EQ("fixme", app.items[0].name);
 }
 
-void example()
-{
+TEST(GildedRoseTest, GoldenMaster) {
+    stringstream actualStream;
+    createGoldenMasterStream(actualStream);
+    ifstream infile(goldenMasterFile.c_str());
+    string expected;
+    while (getline(infile, expected)) {
+        string actual;
+        getline(actualStream, actual);
+        EXPECT_EQ(expected, actual);
+    }
+}
+
+void example() {
+
     vector<Item> items;
     items.push_back(Item("+5 Dexterity Vest", 10, 20));
     items.push_back(Item("Aged Brie", 2, 0));

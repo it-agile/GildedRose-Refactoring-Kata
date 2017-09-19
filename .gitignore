@@ -2,3 +2,16 @@
 *.pyc
 /perl6/lib/.precomp
 /elixir/_build/
+
+cpp/.cproject
+cpp/.project
+cpp/.settings/language.settings.xml
+cpp/GildedRose
+cpp/GildedRose.o
+cpp/GildedRoseTextTests
+cpp/GildedRoseTextTests.o
+cpp/GildedRoseUnitTests.o
+cpp/gtest
+cpp/gtest-all.o
+cpp/gtest_main.a
+cpp/gtest_main.o
