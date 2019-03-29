@@ -8,9 +8,8 @@ sub new {
     return bless \%attrs, $class;
 }
 
-sub update_quality {
-    my $self = shift;
-    for my $item ( @{ $self->{items} } ) {
+sub update_quality_of_item {
+  my $item = shift;
         if (   $item->{name} ne 'Aged Brie'
             && $item->{name} ne 'Backstage passes to a TAFKAL80ETC concert' )
         {
@@ -67,8 +66,50 @@ sub update_quality {
                 }
             }
         }
-    }
     return;
+}
+
+sub update_quality_dexterity_vest {
+  update_quality_of_item(shift);
+}
+
+sub update_quality_aged_brie {
+  update_quality_of_item(shift);
+}
+
+sub update_quality_elixir_of_the_mongoose {
+  update_quality_of_item(shift);
+}
+
+sub update_quality_sulfuras {
+  update_quality_of_item(shift);
+}
+
+sub update_quality_backstage_passes {
+  update_quality_of_item(shift);
+}
+
+sub update_quality_conjured_mana_cake {
+  update_quality_of_item(shift);
+}
+
+sub update_quality {
+    my $self = shift;
+    for my $item ( @{ $self->{items} } ) {
+      if ($item->{name} eq "+5 Dexterity Vest") {
+        update_quality_dexterity_vest($item);
+      } elsif ($item->{name} eq "Aged Brie") {
+        update_quality_aged_brie($item);
+      } elsif ($item->{name} eq "Elixir of the Mongoose") {
+        update_quality_elixir_of_the_mongoose($item);
+      } elsif ($item->{name} eq "Sulfuras, Hand of Ragnaros") {
+        update_quality_sulfuras($item);
+      } elsif ($item->{name} eq "Backstage passes to a TAFKAL80ETC concert") {
+        update_quality_backstage_passes($item);
+      } elsif ($item->{name} eq "Conjured Mana Cake") {
+        update_quality_conjured_mana_cake($item);
+      }
+    }
 }
 
 1;
